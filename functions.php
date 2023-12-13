@@ -1,16 +1,15 @@
 <?php
 $string = '';
 $class = '';
+$bool = false;
 if (isset($_GET['mail'])) {
     $insertMail = $_GET['mail'];
-    $bool = false;
     if (strpos($insertMail, '.') && strpos($insertMail, '@')) {
         $bool = true;
-        $string = 'Email accettata';
+        $string = 'E\' stata accettata';
         $class = 'alert-success';
     } else {
-        $bool = false;
-        $string = 'Email non accettata';
+        $string = 'Non è stata accettata';
         $class = 'alert-danger';
     }
 }
