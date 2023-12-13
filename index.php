@@ -1,19 +1,4 @@
-<?php
-include __DIR__ . "/functions.php";
-
-session_unset();
-session_start();
-
-if (isset($_SESSION['flag']) && $_SESSION['flag'] === true) {
-    header('Location: ./thankyou.php');
-    die;
-}
-
-$_SESSION['flag'] = !empty($_SESSION['flag']) ? $_SESSION['flag'] : false;
-
-$_SESSION['email'] = !empty($_SESSION['email']) ? $_SESSION['email'] : '';
-?>
-
+<?php include __DIR__ . "/controller.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,22 +15,10 @@ $_SESSION['email'] = !empty($_SESSION['email']) ? $_SESSION['email'] : '';
         <form action="index.php" method="GET">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" name="mail">
+                <input type="text" class="form-control" placeholder="inserisci la tua mail" aria-label="Username" aria-describedby="basic-addon1" name="mail">
                 <button type="submit" class="btn btn-primary">Invia</button>
             </div>
         </form>
-
-        <?php
-        if (!isset($_SESSION['email'])) {
-            $_SESSION['email'] = $_GET['mail'];
-        };
-        $_SESSION['flag'] = $bool;
-
-        if (isset($_SESSION['flag']) && $_SESSION['flag'] === true) {
-            header('Location: ./thankyou.php');
-            die;
-        }
-        ?>
 
         <div class="alert <? echo $class; ?>" role="alert">
             <p class="m-0">
@@ -54,7 +27,6 @@ $_SESSION['email'] = !empty($_SESSION['email']) ? $_SESSION['email'] : '';
                 } ?>
             </p>
         </div>
-
     </div>
 </body>
 
