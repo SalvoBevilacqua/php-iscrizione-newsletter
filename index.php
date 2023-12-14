@@ -15,7 +15,7 @@
         <form action="index.php" method="GET">
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">@</span>
-                <input type="text" class="form-control" placeholder="inserisci la tua mail" aria-label="Username" aria-describedby="basic-addon1" name="mail">
+                <input type="text" class="form-control" value="<?php echo !empty($_GET['mail']) ? $_GET['mail'] : '' ?>" placeholder="<?php echo empty($_GET['mail']) ? 'inserisci la tua mail' : '' ?>" aria-label="Username" aria-describedby="basic-addon1" name="mail">
                 <button type="submit" class="btn btn-primary">Invia</button>
             </div>
         </form>
